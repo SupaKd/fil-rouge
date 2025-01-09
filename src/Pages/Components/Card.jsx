@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 function Card(props) {
 	return (
 		<article>
-			<p>title : {props.data.title}</p>
+			<p>Titre : {props.data.title}</p>
 			<img src={props.data.images.jpg.image_url} />
 		</article>
 	);

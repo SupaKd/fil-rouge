@@ -6,7 +6,6 @@ function Home() {
 	return (
 		<main id="home">
 			
-				<h1>Bienvenue sur la page !</h1>
 				
 				<video controls width="100%" height="auto">
                 <source src="/Attack.mp4" type="video/mp4" />

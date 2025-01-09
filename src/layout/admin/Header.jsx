@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
-import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons"; 
+import { faTimes, faBars, faUser } from "@fortawesome/free-solid-svg-icons"; // Ajoutez faUser
 
 import favicon from "/apple-touch-icon.png";
 
@@ -21,7 +21,15 @@ function Header(props) {
                         <img src={favicon} alt="the logo" className="logo" />
                     </NavLink>
                 </h1>
-
+            <div class="fontawesome">
+                <button>
+                {!props.isLogged && (
+                    <NavLink to="./auth/login" title="Go to login page" classname="b-login">
+                        <FontAwesomeIcon icon={faUser} style={{ color: "#555" }} />
+                    </NavLink>
+                )}
+                </button>
+                
                 {isToggle ? (
                     <nav>
                         <button id="burger" onClick={onClickHandler} className="close-menu">
@@ -32,6 +40,9 @@ function Header(props) {
                         </NavLink>
                         <NavLink to="/details" end title="Go to details page">
                             Details
+                        </NavLink>
+                        <NavLink to="/details" end title="Go to details page">
+                            Contact
                         </NavLink>
                         {props.isLogged ? (
                             <>
@@ -50,20 +61,16 @@ function Header(props) {
                                     Logout
                                 </button>
                             </>
-                        ) : (
-                            <NavLink to="/auth/login" end title="Go to login page">
-                                Connexion
-                            </NavLink>
-                        )}
+                        ) : null}
                     </nav>
                 ) : null}
 
-               
                 {!isToggle && (
                     <button onClick={onClickHandler}>
                         <FontAwesomeIcon icon={faBars} /> 
                     </button>
                 )}
+            </div>
             </header>
         </>
     );

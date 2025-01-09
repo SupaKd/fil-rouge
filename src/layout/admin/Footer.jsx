@@ -12,7 +12,6 @@ function Footer() {
                     <h3>Adresse</h3>
                     <p>123 Rue Imaginaire</p>
                     <p>69100 Lyon, France</p>
-                    <p>Email: contact@example.com</p>
                 </div>
 
                 <div className="footer-section">

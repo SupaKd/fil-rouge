@@ -3,9 +3,9 @@ import Card from "./Card";
 
 
 function Details() {
-	const [datas, setDatas] = useState([]); // Initialiser avec un tableau vide
-	const [loading, setLoading] = useState(true); // État de chargement
-	const [error, setError] = useState(null); // Gestion des erreurs
+	const [datas, setDatas] = useState([]); 
+	const [loading, setLoading] = useState(true); 
+	const [error, setError] = useState(null); 
 
 	useEffect(() => {
 		fetch("https://api.jikan.moe/v4/top/anime?type=ona")
@@ -16,19 +16,18 @@ function Details() {
 				return res.json();
 			})
 			.then((res) => {
-				// Vérifie si la réponse contient bien un tableau de données
 				if (res.data && Array.isArray(res.data)) {
-					setDatas(res.data); // Utiliser res.data pour obtenir les anime
+					setDatas(res.data); 
 				} else {
 					throw new Error("La réponse de l'API n'est pas valide");
 				}
 			})
 			.catch((err) => {
 				console.error("Erreur lors de la récupération des données :", err);
-				setError(err.message); // Enregistrer l'erreur
+				setError(err.message); 
 			})
 			.finally(() => {
-				setLoading(false); // Arrêter le chargement
+				setLoading(false); 
 			});
 	}, []);
 
